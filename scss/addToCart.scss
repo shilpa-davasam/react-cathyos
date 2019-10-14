@@ -1,0 +1,50 @@
+.add-to-cart{
+  width: 100vw;
+  header{
+    padding:0em 0.2em;
+    overflow: hidden; 
+    text-align: center;
+    div{
+      padding:0em 0.3em;
+        .all-items{
+          float:left;
+        }
+        .item-added{
+          display:inline-block;
+          text-align: center;
+        }
+        .go-to-cart{
+          float:right;
+        }
+    }
+   
+  }
+  .items{
+    padding:1em 2em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    .item{
+      border: 0.09em gray solid;
+      margin: 1em;
+      .discount{
+        font-size: 0.6em;
+      }
+      .image{
+          width: 20vw;
+          height: 20vh;
+          text-align: center;
+          background-color: #eee;
+          display: inline-block;
+          margin: 1.5em 1.5em 2em 0em;
+      }
+      .details{
+         background-color: #eee;
+        .name{
+          display: block;
+        }
+      }
+    }
+  }
+
+}
