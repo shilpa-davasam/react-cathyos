@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 //import components
 import SingleItem from './SingleItem';
@@ -13,16 +14,33 @@ class AddToCart extends React.Component{
   componentDidMount(){
     console.log(this.props.items);
   }
+  //function to disable Go to cart till something added in cart
+  disabledGo = () => {
+	  if(this.props.orders.length){
+		  return false;
+	  }
+	  else{
+		  return true;
+	  }
+  }
+  
+  
   render(){
-    const {props: {items, updateOrders} } = this;
+    const {props: {items, updateOrders, addedItem} } = this;
+	let newItem;
+	if(addedItem){
+		newItem = `${addedItem} added to cart`;
+	}
     return(
       <div className="add-to-cart">
         <header>
           <hr></hr>
-          <div>
+          <div className="header-div">
             <span className="all-items">All Items</span>
-            <span className="item-added">Item added to cart</span>
-            <span className="go-to-cart">Go To Cart</span>
+            <span className="item-added">{newItem}</span>
+			<Link to="/orders" >
+				<button disabled={this.disabledGo()} className="go-to-cart">Go To Cart</button>
+			</Link>
           </div>
           <hr></hr>
         </header>

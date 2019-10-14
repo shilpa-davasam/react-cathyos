@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; 
 import axios from 'axios';
 
 //import components
 import AddToCart from './Components/AddToCart';
+import Orders from './Components/Orders';
 
 import './style.css';
 
@@ -14,7 +16,8 @@ class App extends Component {
       items: [],
       isLoaded: false,
       error: "",
-      orders: []
+      orders: [],
+	  addedItem: ""
     };
   }
 
@@ -34,12 +37,12 @@ class App extends Component {
     else{
       orders.push(obj);
     }
-    this.setState({orders});
+    this.setState({orders, addedItem: obj.name});
     console.log(this.state.orders);
   }
 
   render() {
-    const { state: {items, isLoaded, error, orders}, updateOrders} = this;
+    const { state: {items, isLoaded, error, orders, addedItem}, updateOrders} = this;
     if(!isLoaded){
       return <div>Loading...</div>;
     }
@@ -48,9 +51,13 @@ class App extends Component {
     }
     else{
       return (
-            <React.Fragment>
-              <AddToCart items={items} updateOrders={updateOrders}/>
-            </React.Fragment>
+		<Router>
+			<Switch>
+				<Route exact path="/" render={() =>  <AddToCart items={items} updateOrders={updateOrders} addedItem={addedItem} orders={orders}/>}/>
+				<Route path="/orders" render={() => <Orders orders={orders}/>} />
+			</Switch>
+		</Router>
+            
           );
     }
    

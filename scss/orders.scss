@@ -1,0 +1,23 @@
+.orders{
+	width: 100vw;
+	padding: 1em;
+	header{
+		div{
+			.go-back{
+				margin-left:0.5em;
+			}
+			.order-heading{
+				margin-left: 1em;
+			}
+		}
+	}
+	.order-summary{
+		display:inline-block;
+		width: 75vw;
+		clear: both
+	}
+	.order-total{
+		display: inline-block;
+		width: 20vw;
+	}
+}
