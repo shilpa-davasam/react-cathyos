@@ -14,7 +14,7 @@ class AddToCart extends React.Component{
     console.log(this.props.items);
   }
   render(){
-    const {props: {items} } = this;
+    const {props: {items, updateOrders} } = this;
     return(
       <div className="add-to-cart">
         <header>
@@ -27,7 +27,7 @@ class AddToCart extends React.Component{
           <hr></hr>
         </header>
         <div className="items">
-          { items.map((item, index) => <SingleItem key={index} item={item}></SingleItem> )}
+          { items.map((item, index) => <SingleItem key={index} item={item} updateOrders={updateOrders}></SingleItem> )}
         </div>
       
       </div>

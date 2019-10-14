@@ -14,7 +14,7 @@ class App extends Component {
       items: [],
       isLoaded: false,
       error: "",
-      order: []
+      orders: []
     };
   }
 
@@ -24,8 +24,22 @@ class App extends Component {
         .catch(err => this.setState({isLoaded: true, error: err}));
   }
 
+  //update orders in cart 
+  updateOrders = (obj) => {
+    const orders = [...this.state.orders];
+    const order = orders.find(order => order.id === obj.id);
+    if(order){
+      order.quantity = order.quantity++;
+    }
+    else{
+      orders.push(obj);
+    }
+    this.setState({orders});
+    console.log(this.state.orders);
+  }
+
   render() {
-    const { state: {items, isLoaded, error}} = this;
+    const { state: {items, isLoaded, error, orders}, updateOrders} = this;
     if(!isLoaded){
       return <div>Loading...</div>;
     }
@@ -35,7 +49,7 @@ class App extends Component {
     else{
       return (
             <React.Fragment>
-              <AddToCart items={items}/>
+              <AddToCart items={items} updateOrders={updateOrders}/>
             </React.Fragment>
           );
     }

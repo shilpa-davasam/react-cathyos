@@ -12,7 +12,9 @@ class SingleItem extends React.Component{
   }
 
   onAddToCart = (e) => {
-
+      const {sellingPrice} = this.state;
+      const obj = {...this.props.item, sellingPrice, quantity: 1};
+      this.props.updateOrders(obj);
   }
 
   render(){
