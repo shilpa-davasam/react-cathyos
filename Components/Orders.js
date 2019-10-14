@@ -13,7 +13,7 @@ class Orders extends React.Component{
 		if(orders.length){
 			orderContent = orders.map((order, index) => {
 				return(
-					<tr>
+					<tr key={index}>
 						<td>{order.name}</td>
 						<td>{order.quantity}</td>
 						<td>{order.quantity * order.price}</td>
@@ -35,13 +35,15 @@ class Orders extends React.Component{
 				<div className="order-summary">
 					<table>
 						<tbody>
-							<th>
-							<hr></hr>
-								<td>Items</td>
-								<td>Qty</td>
-								<td>Price</td>
-								<hr></hr>
-							</th>
+              <hr></hr>
+							<tr>
+							
+								<th>Items</th>
+								<th>Qty</th>
+								<th>Price</th>
+								
+							</tr>
+              <hr></hr>
 							{orderContent}
 						</tbody>
 					</table>
