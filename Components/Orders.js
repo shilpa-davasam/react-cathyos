@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom';
 import '../scss/orders.scss';
 
 class Orders extends React.Component{
-	
+
+  decreaseQunatity = (e) => {
+    
+  }
 	
 	render(){
 		
@@ -19,7 +22,9 @@ class Orders extends React.Component{
                     <p>{order.name}</p>
                 </div>
                 <div class="Cell">
+                    <button onClick={this.decreaseQuantity}> - </button>
                     <p>{order.quantity}</p>
+                    <button onClick={this.increaseQunatity}> + </button>
                 </div>
                 <div class="Cell">
                     <p>{order.quantity * order.price}</p>
