@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 //import scss
 import '../scss/orders.scss';
@@ -13,11 +14,18 @@ class Orders extends React.Component{
 		if(orders.length){
 			orderContent = orders.map((order, index) => {
 				return(
-					<tr key={index}>
-						<td>{order.name}</td>
-						<td>{order.quantity}</td>
-						<td>{order.quantity * order.price}</td>
-					</tr>
+            <div class="Row" key={index}>
+                <div class="Cell">
+                    <p>{order.name}</p>
+                </div>
+                <div class="Cell">
+                    <p>{order.quantity}</p>
+                </div>
+                <div class="Cell">
+                    <p>{order.quantity * order.price}</p>
+                </div>
+            </div>
+
 				)
 			})
 		}
@@ -27,26 +35,32 @@ class Orders extends React.Component{
 				<header>
 					<hr></hr>
 					<div>
-						<span className="go-back"> &#60; </span>
+            <Link to="/">
+						  <span className="go-back"> &#60; </span>
+            </Link>
 						<span className="order-heading">Order Summary</span>
 					</div>
 					<hr></hr>
 				</header>
 				<div className="order-summary">
-					<table>
-						<tbody>
-              <hr></hr>
-							<tr>
-							
-								<th>Items</th>
-								<th>Qty</th>
-								<th>Price</th>
-								
-							</tr>
-              <hr></hr>
+          <div class="Table">
+    
+    <div class="Heading">
+        <div class="Cell">
+            <p>Items</p>
+        </div>
+        <div class="Cell">
+            <p>Qty</p>
+        </div>
+        <div class="Cell">
+            <p>Price</p>
+        </div>
+    </div>
 							{orderContent}
-						</tbody>
-					</table>
+    
+</div>
+         
+
 					
 				</div>
 				<div className="order-total">
