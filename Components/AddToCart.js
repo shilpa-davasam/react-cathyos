@@ -29,7 +29,8 @@ class AddToCart extends React.Component{
     const {props: {items, updateOrders, addedItem} } = this;
 	let newItem;
 	if(addedItem){
-		newItem = `${addedItem} added to cart`;
+		//newItem = `${addedItem} added to cart`;
+    newItem = <span className="item-added btn">{addedItem} is added to cart</span>
 	}
     return(
       <div className="add-to-cart">
@@ -37,9 +38,9 @@ class AddToCart extends React.Component{
           <hr></hr>
           <div className="header-div">
             <span className="all-items">All Items</span>
-            <span className="item-added">{newItem}</span>
+            {newItem}
 			<Link to="/orders" >
-				<button disabled={this.disabledGo()} className="go-to-cart">Go To Cart</button>
+				<button disabled={this.disabledGo()} className="go-to-cart btn">Go To Cart</button>
 			</Link>
           </div>
           <hr></hr>
