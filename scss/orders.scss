@@ -16,7 +16,7 @@
 		display: table;
 		width: 100%;
     border-collapse: separate;
-		border-spacing: 0 1em;
+		//border-spacing: 0 1em;
 		.name{
 			width: 50%;
 		}
@@ -33,6 +33,18 @@
 		display: table-row;
 		font-weight: bold;
 		text-align: center;
+    .name{
+			width: 50%;
+      border-top: 0.05em gray solid;
+		}
+		.qty{
+			width: 25%;
+      border-top: 0.05em gray solid;
+		}
+		.price{
+			width: 25%;
+      border-top: 0.05em gray solid;
+		}
 	}
 	.Row
 	{
@@ -48,8 +60,10 @@
 	}
 	.order-summary{
 		float:left;
-		width: 70%;
-				
+		width: 69%;
+    .Table{
+      border-spacing: 0 1em;
+    }
 		.item-image{
 			width: 10%;
 			height: 10%;
@@ -91,6 +105,14 @@
 		float: left;
 		width: 28%;
 		border: 0.05em gray solid;
-		
+		margin-left: 1.9%;
+    .Table{
+      .title{
+        font-weight: bold;
+      }
+      div.Row:nth-last-child(1) {
+        background: #eee;
+      }   
+    }
 	}
 }

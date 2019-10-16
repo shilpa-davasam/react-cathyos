@@ -25,19 +25,19 @@ class SingleItem extends React.Component{
 		strikePrice = <strike>${price}</strike>;
 	}
 	else {
-		itemDiscount = null;
+		itemDiscount = <span className="discount"></span>
 		strikePrice = null;
 	}
     return(
       <div className="item">
-			{itemDiscount}
+			    {itemDiscount}
           <div className="image">
             <img src={img_url} alt="Book Cover Not Available"/>
           </div>
           <div className="details">
               <span className="name">{name}</span>
               <span>{strikePrice} ${this.state.sellingPrice}</span>
-              <button onClick={this.onAddToCart}>Add To Cart</button>
+              <button onClick={this.onAddToCart} className="btn add">Add To Cart</button>
           </div>
       </div>
     )

@@ -64,6 +64,7 @@ class Orders extends React.Component{
 								<p>Price</p>
 							</div>
 						</div>
+            
 							{orderContent}
 			
 					</div>
