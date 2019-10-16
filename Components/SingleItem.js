@@ -22,7 +22,7 @@ class SingleItem extends React.Component{
     let itemDiscount, strikePrice;
 	if(discount > 0){
 		itemDiscount = <span className="discount">{discount}% off</span>;
-		strikePrice = <strike>${price}</strike>;
+		strikePrice = <strike><span>${price}</span></strike>;
 	}
 	else {
 		itemDiscount = <span className="discount"></span>
@@ -36,7 +36,8 @@ class SingleItem extends React.Component{
           </div>
           <div className="details">
               <span className="name">{name}</span>
-              <span>{strikePrice} ${this.state.sellingPrice}</span>
+              {strikePrice}
+              <span className="price"> ${this.state.sellingPrice}</span>
               <button onClick={this.onAddToCart} className="btn add">Add To Cart</button>
           </div>
       </div>

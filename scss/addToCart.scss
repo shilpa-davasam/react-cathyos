@@ -85,6 +85,15 @@
         .name{
           display: block;
         }
+        .price{
+          font-weight: bold;
+        }
+        strike{
+          color: red;
+          span {
+            color: black !important;
+          }
+        }
       }
       .add{
         float: right;

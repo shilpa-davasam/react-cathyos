@@ -3,6 +3,9 @@
 	padding: 1em;
 	header{
 		div{
+      a{
+        text-decoration: none;
+      }
 			.go-back{
 				margin-left:0.5em;
 			}
@@ -99,6 +102,7 @@
 		.item-price{
 			text-align: center;
 			vertical-align: middle;
+      font-weight: bold;
 		}
 	}
 	.order-total{
@@ -112,6 +116,9 @@
       }
       div.Row:nth-last-child(1) {
         background: #eee;
+        div.Cell:nth-last-child(1){
+          font-weight: bold;
+        }  
       }   
     }
 	}
