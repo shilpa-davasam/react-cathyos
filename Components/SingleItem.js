@@ -14,21 +14,29 @@ class SingleItem extends React.Component{
   onAddToCart = (e) => {
       const {sellingPrice} = this.state;
       const obj = {...this.props.item, sellingPrice, quantity: 1};
-      this.props.updateOrders(obj);
+      this.props.updateOrders(obj, "add");
   }
 
   render(){
     const {discount, id, img_url, name, price, type}  = this.props.item;
-    
+    let itemDiscount, strikePrice;
+	if(discount > 0){
+		itemDiscount = <span className="discount">{discount}% off</span>;
+		strikePrice = <strike>${price}</strike>;
+	}
+	else {
+		itemDiscount = null;
+		strikePrice = null;
+	}
     return(
       <div className="item">
-          <span className="discount">{discount}% off</span>
+			{itemDiscount}
           <div className="image">
             <img src={img_url} alt="Book Cover Not Available"/>
           </div>
           <div className="details">
               <span className="name">{name}</span>
-              <span><strike>${price}</strike>${this.state.sellingPrice}</span>
+              <span>{strikePrice} ${this.state.sellingPrice}</span>
               <button onClick={this.onAddToCart}>Add To Cart</button>
           </div>
       </div>

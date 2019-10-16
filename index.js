@@ -28,11 +28,20 @@ class App extends Component {
   }
 
   //update orders in cart 
-  updateOrders = (obj) => {
+  updateOrders = (obj, op="add") => {
     const orders = [...this.state.orders];
     const order = orders.find(order => order.id === obj.id);
     if(order){
-      order.quantity = order.quantity++;
+		switch(op){
+			case "add": order.quantity = order.quantity + 1;
+				break;
+			case "sub" : 
+				if(order.quantity > 1){
+					order.quantity = order.quantity - 1;
+				}
+					
+				break;
+		}
     }
     else{
       orders.push(obj);
@@ -40,9 +49,15 @@ class App extends Component {
     this.setState({orders, addedItem: obj.name});
     console.log(this.state.orders);
   }
+  removeOrder = (obj) => {
+	  const orders = [...this.state.orders];
+	  const index = orders.findIndex(order => order.id === obj.id);
+	  orders.splice(index, 1);
+	  this.setState({orders});
+  }
 
   render() {
-    const { state: {items, isLoaded, error, orders, addedItem}, updateOrders} = this;
+    const { state: {items, isLoaded, error, orders, addedItem}, updateOrders, removeOrder} = this;
     if(!isLoaded){
       return <div>Loading...</div>;
     }
@@ -54,7 +69,8 @@ class App extends Component {
 		<Router>
 			<Switch>
 				<Route exact path="/" render={() =>  <AddToCart items={items} updateOrders={updateOrders} addedItem={addedItem} orders={orders}/>}/>
-				<Route path="/orders" render={() => <Orders orders={orders}/>} />
+				<Route path="/orders" render={() => <Orders orders={orders} updateOrders={updateOrders} 
+						removeOrder={removeOrder}/>} />
 			</Switch>
 		</Router>
             
