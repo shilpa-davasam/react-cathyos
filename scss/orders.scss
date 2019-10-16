@@ -15,6 +15,8 @@
 	{
 		display: table;
 		width: 100%;
+    border-collapse: separate;
+		border-spacing: 0 1em;
 		.name{
 			width: 50%;
 		}
@@ -45,10 +47,9 @@
 		padding-right: 5px;
 	}
 	.order-summary{
-		display:inline-block;
-		width: 70vw;
-		clear: both;
-		
+		float:left;
+		width: 70%;
+				
 		.item-image{
 			width: 10%;
 			height: 10%;
@@ -64,15 +65,14 @@
 			border: 0.05em gray solid;
 		}
 		.item-name{
-			vertical-align: middle;
-			margin-top: 0.5em;
-			display: inline-block;
+			position: absolute;
+			margin-top: 1.6em;
+			
 		}
 		.item-remove{
 			float: right;
 			vertical-align: middle;
-			margin-top: 0.5em;
-			display: inline-block;
+			margin-top: 1.5em;
 			cursor: pointer;
 		}
 		.add-remove-item{
@@ -88,10 +88,9 @@
 		}
 	}
 	.order-total{
-		display: inline-block;
-		width: 20vw;
+		float: left;
+		width: 28%;
 		border: 0.05em gray solid;
-		border-collapse: separate;
-		border-spacing: 0 1em;
+		
 	}
 }

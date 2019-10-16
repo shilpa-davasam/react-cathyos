@@ -68,31 +68,35 @@ class Orders extends React.Component{
 			
 					</div>
 				</div>
-				<div className="order-total Table">
-					<div className="title">
-						Total
-					</div>
-					<div className="Row">
-						<div className="Cell">Items({totalQuantity})</div>
-						<div className="Cell">:</div>
-						<div className="Cell">${total}</div>
-					</div>
-					<div className="Row">
-						<div className="Cell">Discount</div>
-						<div className="Cell">:</div>
-						<div className="Cell">-${totalDiscount}</div>
-					</div>
-					<div className="Row">
-						<div className="Cell">Type Discount</div>
-						<div className="Cell">:</div>
-						<div className="Cell">-$0</div>
-					</div>
-					<div className="Row">
-						<div className="Cell">Order Total</div>
-						<div className="Cell">:</div>
-						<div className="Cell">${total - totalDiscount}</div>
-					</div>
+				<div className="order-total">
+          <div className="Table">
+            <div className="title">
+              Total
+            </div>
+            <div className="Row">
+              <div className="Cell">Items({totalQuantity})</div>
+              <div className="Cell">:</div>
+              <div className="Cell">${total}</div>
+            </div>
+            <div className="Row">
+              <div className="Cell">Discount</div>
+              <div className="Cell">:</div>
+              <div className="Cell">-${totalDiscount}</div>
+            </div>
+            <div className="Row">
+              <div className="Cell">Type Discount</div>
+              <div className="Cell">:</div>
+              <div className="Cell">-$0</div>
+            </div>
+            <div className="Row">
+              <div className="Cell">Order Total</div>
+              <div className="Cell">:</div>
+              <div className="Cell">${total - totalDiscount}</div>
+            </div>
+          </div>
+					
 				</div>
+        <div style={{clear: "both"}}></div>
 			</div>
 		)
 	}
