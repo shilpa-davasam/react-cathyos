@@ -12,6 +12,7 @@ class AddToCart extends React.Component{
     super(props);
   }
   componentDidMount(){
+    this.props.resetAddedItem();
     console.log(this.props.items);
   }
   //function to disable Go to cart till something added in cart

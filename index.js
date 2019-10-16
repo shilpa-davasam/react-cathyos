@@ -50,18 +50,23 @@ class App extends Component {
     this.setState({ orders, addedItem: obj.name });
     
   };
+  //remove orders in cart
   removeOrder = obj => {
     const orders = [...this.state.orders];
     const index = orders.findIndex(order => order.id === obj.id);
     orders.splice(index, 1);
     this.setState({ orders });
   };
-
+  //make added item empty while coming back
+  resetAddedItem = () =>{
+    this.setState({addedItem: ""});
+  }
   render() {
     const {
       state: { items, isLoaded, error, orders, addedItem },
       updateOrders,
-      removeOrder
+      removeOrder,
+      resetAddedItem
     } = this;
     if (!isLoaded) {
       return <div>Loading...</div>;
@@ -80,6 +85,7 @@ class App extends Component {
                   updateOrders={updateOrders}
                   addedItem={addedItem}
                   orders={orders}
+                  resetAddedItem={resetAddedItem}
                 />
               )}
             />
